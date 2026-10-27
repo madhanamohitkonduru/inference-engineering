@@ -1,0 +1,21 @@
+(server: scripts/serve.sh --max-num-seqs N ; test: python batching_test.py <label>; times in seconds since the first request was sent)
+=== seqs1 ===
+long    finished at   0.92 s
+short1  finished at   0.97 s
+short2  finished at   1.04 s
+short3  finished at   1.09 s
+=== seqs1_run2 ===
+long    finished at   0.90 s
+short1  finished at   0.95 s
+short2  finished at   1.01 s
+short3  finished at   1.06 s
+=== seqs4 ===
+long    finished at   0.96 s
+short1  finished at   0.13 s
+short2  finished at   0.18 s
+short3  finished at   0.22 s
+=== seqs4_run2 ===
+long    finished at   0.95 s
+short1  finished at   0.13 s
+short2  finished at   0.19 s
+short3  finished at   0.22 s
