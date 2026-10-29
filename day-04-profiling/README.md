@@ -64,10 +64,10 @@ Plain benchmark without the profiler (`--enforce-eager`): c=1 TPOT 2.26 -> 7.59 
 - `--enforce-eager` also disables `torch.compile` fusion, so "graphs off" means graphs *and* compiler off (eager launched 389 vs 331 kernels per step at c=1). Isolating graphs alone would need `cudagraph_mode` set to NONE with compilation left on.
 - Single short runs (c=1: 4 requests, c=32: 64 requests); each kernel-time figure is a total over the captured window. Steps are counted by sampling kernels, so prompt steps are included in per-step averages.
 - The profiler adds overhead; the c=1 profile-based total is +4% over unprofiled TPOT.
-- The c=1 trace shows prompt iterations scheduling only 8 tokens (`execute_context_1(8)`), which may mean the benchmark's repeated random prompts hit vLLM's prefix cache. Not checked; if true it affects how prefill cost reads in Days 1-3.
+- The c=1 trace shows prompt iterations scheduling only 8 tokens (`execute_context_1(8)`), which may mean the benchmark's repeated random prompts hit vLLM's prefix cache. Checked on Day 6: yes, the benchmark's repeated prompts hit the prefix cache (49% on a first pass, 98.5% on repeats); see [`day-06-prefix-caching`](../day-06-prefix-caching/).
 - Raw traces (~5-14 MB each) are not committed.
 
 ## Next
-- Check the prefix-cache hit rate in the server log and rerun with `--no-enable-prefix-caching`.
+- ~~Check the prefix-cache hit rate and rerun with `--no-enable-prefix-caching`~~ done on Day 6.
 - Isolate CUDA graphs from compilation; repeat each point several times.
 - Try a larger model, where bigger matmuls should sit closer to peak bandwidth, to test the "bigger kernels run closer to peak" finding.

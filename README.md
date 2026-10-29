@@ -9,7 +9,7 @@ Hands-on notes, benchmarks and code from a 4-week self-guided study of LLM infer
 | [Day 3](day-03-roofline/) | KV-cache math + decode roofline | Hand-derived KV bytes/token and capacity vs vLLM's log; predicted vs measured tokens/s at c=1/8/32 |
 | [Day 4](day-04-profiling/) | Profiling decode | PyTorch profiler + Nsight Systems on Qwen3-0.6B: where a decode step goes, CUDA graphs on vs off |
 | [Day 5](day-05-continuous-batching/) | Continuous batching | `--max-num-seqs` 1 vs 4 with 1 long + 3 short requests; walk through vLLM's `schedule()` |
-| [Day 4](day-04-profiling/) | Decode profiling (in progress) | PyTorch-profiler kernel breakdown at c=1 and c=32; Nsight Systems and CUDA-graph comparison to follow |
+| [Day 6](day-06-prefix-caching/) | Prefix caching | Hit rates in the Day 1 benchmark, TTFT with caching on/off, edge cases (changed token, shared text last, short prefix), cache code walk-through |
 
 ## Rebuilding the environment on a fresh GPU pod
 ```bash

@@ -1,0 +1,35 @@
+# Day 6 raw output, copied untouched from the pod terminal. Pod: RTX 4090, vLLM 0.32.0, Qwen3-0.6B,
+# serve.sh defaults (--max-model-len 4096 --gpu-memory-utilization 0.85). Prefix caching is ON by default.
+
+## A. Fresh server, metrics before any request (enable_prefix_caching="True", block_size="16", hash algo sha256, num_gpu_blocks=9742, kv_cache_size_tokens=155872)
+vllm:prefix_cache_queries_total 0.0
+vllm:prefix_cache_hits_total 0.0
+
+## B. bench_quick.sh, first pass (100 prompts at c=1 then c=32; 512 in / 128 out), caching on
+c=1: Output token throughput (tok/s):         373.92      Mean TPOT (ms):                          2.49
+c=32: Output token throughput (tok/s):         4518.35     Mean TPOT (ms):                          5.43
+counters after: queries_total 104000.0, hits_total 51200.0
+
+## C. bench_quick.sh, second pass, caching on
+c=1: Output token throughput (tok/s):         380.18      Mean TPOT (ms):                          2.50
+c=32: Output token throughput (tok/s):         4514.47     Mean TPOT (ms):                          5.47
+counters after: queries_total 208000.0, hits_total 153600.0
+(second pass delta: queries +104000, hits +102400)
+TTFT, second pass (results-sanity/c1.txt, c32.txt):
+c1  Mean TTFT 19.12 ms, Median TTFT 18.44 ms, Mean TPOT 2.50 ms
+c32 Mean TTFT 95.55 ms, Median TTFT 96.00 ms, Mean TPOT 5.47 ms
+
+## D. bench_quick.sh with --no-enable-prefix-caching (results-nocache)
+c=1: Output token throughput (tok/s):         367.88      Mean TPOT (ms):                          2.53
+c=32: Output token throughput (tok/s):         4215.04     Mean TPOT (ms):                          5.76
+c1  Mean TTFT 25.68 ms, Median TTFT 24.69 ms, Mean TPOT 2.53 ms
+c32 Mean TTFT 131.27 ms, Median TTFT 124.64 ms, Mean TPOT 5.76 ms
+counters: queries_total 0.0, hits_total 0.0
+
+## E. prefix_test.py (2000-token shared prefix unless stated; 10 requests one at a time; TTFT in ms)
+off_run1 (caching off):     28.9 27.9 27.7 27.9 31.4 26.0 26.2 25.6 26.3 25.5   | queries +0, hits +0
+on_run1  (caching on):      28.6 14.9 14.9 22.5 16.4 16.3 16.8 14.4 13.2 14.7   | queries +20127, hits +18000
+on_run2  (caching on):      28.1 18.9 18.3 19.1 13.3 16.2 16.1 13.5 13.0 14.6   | queries +20127, hits +18000
+short100 (100-token prefix):18.7 13.3 16.9 12.2 11.5 12.2 10.9 11.8 10.8 11.6   | queries +1127,  hits +864
+mid (token 1000 changed):   26.8 20.6 18.3 24.7 20.1 19.7 18.7 22.2 18.0 17.3   | queries +20127, hits +8928
+after (question first):     30.9 35.3 29.2 28.6 28.0 30.3 31.0 32.8 25.9 31.8   | queries +20127, hits +0
