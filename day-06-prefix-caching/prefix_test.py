@@ -1,5 +1,7 @@
 """Shared-prefix TTFT experiment.
-Usage: python prefix_test.py <label> [prefix_tokens]
+Usage: python prefix_test.py <label> [prefix_tokens] [mode]
+  mode = normal (default) | mid (one token in the middle of the prefix differs per request)
+       | after (the unique question comes BEFORE the shared text)
 
 Sends 1 warm-up request, then 10 requests ONE AT A TIME. Each request = the same shared prefix
 (random 8-token nonce + filler, exactly prefix_tokens long) + a different short question.
@@ -13,6 +15,8 @@ BASE = "http://localhost:8000"
 MODEL = "Qwen/Qwen3-0.6B"
 label = sys.argv[1] if len(sys.argv) > 1 else "run"
 PREFIX_TOKENS = int(sys.argv[2]) if len(sys.argv) > 2 else 2000
+MODE = sys.argv[3] if len(sys.argv) > 3 else "normal"
+assert MODE in ("normal", "mid", "after")
 N = 10
 tok = AutoTokenizer.from_pretrained(MODEL)
 sess = requests.Session()   # reuse the connection so setup cost is not in every TTFT
@@ -46,14 +50,24 @@ prefix = nonce + filler[: PREFIX_TOKENS - len(nonce)]
 assert len(prefix) == PREFIX_TOKENS, "filler too short for this prefix length"
 questions = [tok.encode(f" Question {i}: what is {i} plus {i + 7}?") for i in range(N)]
 
+def build(i):
+    if MODE == "mid":                      # change ONE token in the middle; id is unique per request (valid: vocab is 151,936)
+        p = list(prefix)
+        p[PREFIX_TOKENS // 2] = 100000 + i
+        return p + questions[i]
+    if MODE == "after":                    # unique question first, shared text after it
+        return questions[i] + prefix
+    return prefix + questions[i]           # normal: shared prefix first
+
+
 ttft_ms([random.randint(1000, 100000) for _ in range(20)])   # warm-up: unrelated short request
 q0, h0 = counters()
-results = [ttft_ms(prefix + q) for q in questions]
+results = [ttft_ms(build(i)) for i in range(N)]
 q1, h1 = counters()
 
-print(f"\n=== {label}: prefix {PREFIX_TOKENS} tokens, {N} requests, one at a time ===")
+print(f"\n=== {label}: prefix {PREFIX_TOKENS} tokens, mode {MODE}, {N} requests, one at a time ===")
 for i, v in enumerate(results, 1):
     print(f"request {i:2d}: TTFT {v:7.1f} ms")
 print(f"cache counters during run: queries +{q1 - q0:.0f}, hits +{h1 - h0:.0f}")
-json.dump({"label": label, "prefix_tokens": PREFIX_TOKENS, "ttft_ms": results,
+json.dump({"label": label, "prefix_tokens": PREFIX_TOKENS, "mode": MODE, "ttft_ms": results,
            "queries": q1 - q0, "hits": h1 - h0}, open(f"result_{label}.json", "w"), indent=2)
