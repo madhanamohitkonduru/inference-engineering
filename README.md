@@ -10,6 +10,7 @@ Hands-on notes, benchmarks and code from a 4-week self-guided study of LLM infer
 | [Day 4](day-04-profiling/) | Profiling decode | PyTorch profiler + Nsight Systems on Qwen3-0.6B: where a decode step goes, CUDA graphs on vs off |
 | [Day 5](day-05-continuous-batching/) | Continuous batching | `--max-num-seqs` 1 vs 4 with 1 long + 3 short requests; walk through vLLM's `schedule()` |
 | [Day 6](day-06-prefix-caching/) | Prefix caching | Hit rates in the Day 1 benchmark, TTFT with caching on/off, edge cases (changed token, shared text last, short prefix), cache code walk-through |
+| [Day 7](day-07-chunked-prefill/) | Chunked prefill | 6 decoding users + one 3,500-token prompt at `max_num_batched_tokens` 8192 / 2048 / 512: stall vs the long prompt's TTFT |
 
 ## Rebuilding the environment on a fresh GPU pod
 ```bash
