@@ -82,6 +82,14 @@ print(f"gaps measured: {len(vals)}   median {median:.2f} ms   p99 {p99:.2f} ms  
 print("5 largest gaps (ms, seconds after the intruder was sent):", [(round(g, 1), None if s is None else round(s, 3)) for g, s in top5])
 if ttft is not None:
     print(f"intruder TTFT: {ttft:.1f} ms")
+    # the stalled steps as victim 0 saw them (every victim sees the same ones)
+    thr = max(5.0, 2 * median)
+    t = arrivals[0]
+    print(f"gaps above {thr:.1f} ms for victim 0 (token index, gap ms, seconds after intruder sent):")
+    for i in range(STEADY_AFTER, len(t) - STEADY_AFTER):
+        g = (t[i] - t[i - 1]) * 1000
+        if g > thr:
+            print(f"   token {i}: {g:.1f} ms at +{t[i] - intruder_sent[0]:.3f} s")
 json.dump({"label": label, "mode": mode, "median_ms": median, "p99_ms": p99, "worst_ms": worst[0],
            "top5": top5, "chunk_counts": chunk_counts, "intruder_ttft_ms": ttft,
            "arrivals_s": [[x - t0 for x in a] for a in arrivals]}, open(f"result_{label}.json", "w"))
