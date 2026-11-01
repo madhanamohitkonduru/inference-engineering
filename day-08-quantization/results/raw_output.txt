@@ -1,0 +1,160 @@
+Day 8 raw results. RTX 4090, vLLM 0.32.0, Qwen/Qwen3-0.6B, --max-model-len 4096 --gpu-memory-utilization 0.85
+--no-enable-prefix-caching on every server. Benchmark: scripts/bench_quick.sh (100 prompts, random 512 in / 128 out; c=1 and c=32).
+Lines below were extracted with grep from the pod's result files, unedited. Run folders: A=BF16, B=--quantization fp8, C=--quantization fp8 --kv-cache-dtype fp8.
+
+== A1 c1
+Successful requests:                     100
+Benchmark duration (s):                  31.99
+Output token throughput (tok/s):         400.11
+Mean TTFT (ms):                          31.54
+Median TTFT (ms):                        31.58
+P99 TTFT (ms):                           34.07
+Mean TPOT (ms):                          2.27
+Median TPOT (ms):                        2.26
+P99 TPOT (ms):                           2.28
+== A1 c32
+Successful requests:                     100
+Benchmark duration (s):                  2.91
+Output token throughput (tok/s):         4405.81
+Mean TTFT (ms):                          167.03
+Median TTFT (ms):                        161.87
+P99 TTFT (ms):                           271.86
+Mean TPOT (ms):                          5.09
+Median TPOT (ms):                        5.21
+P99 TPOT (ms):                           5.58
+== A2 c1
+Successful requests:                     100
+Benchmark duration (s):                  31.92
+Output token throughput (tok/s):         400.98
+Mean TTFT (ms):                          31.06
+Median TTFT (ms):                        31.14
+P99 TTFT (ms):                           34.58
+Mean TPOT (ms):                          2.27
+Median TPOT (ms):                        2.26
+P99 TPOT (ms):                           2.29
+== A2 c32
+Successful requests:                     100
+Benchmark duration (s):                  2.89
+Output token throughput (tok/s):         4426.71
+Mean TTFT (ms):                          161.80
+Median TTFT (ms):                        157.34
+P99 TTFT (ms):                           263.77
+Mean TPOT (ms):                          5.10
+Median TPOT (ms):                        5.23
+P99 TPOT (ms):                           5.57
+== B1 c1
+Successful requests:                     100
+Benchmark duration (s):                  29.93
+Output token throughput (tok/s):         427.63
+Mean TTFT (ms):                          36.83
+Median TTFT (ms):                        36.87
+P99 TTFT (ms):                           39.90
+Mean TPOT (ms):                          2.06
+Median TPOT (ms):                        2.06
+P99 TPOT (ms):                           2.08
+== B1 c32
+Successful requests:                     100
+Benchmark duration (s):                  3.03
+Output token throughput (tok/s):         4231.12
+Mean TTFT (ms):                          164.94
+Median TTFT (ms):                        164.17
+P99 TTFT (ms):                           267.08
+Mean TPOT (ms):                          5.51
+Median TPOT (ms):                        5.62
+P99 TPOT (ms):                           6.07
+== B2 c1
+Successful requests:                     100
+Benchmark duration (s):                  29.69
+Output token throughput (tok/s):         431.10
+Mean TTFT (ms):                          34.36
+Median TTFT (ms):                        34.24
+P99 TTFT (ms):                           37.68
+Mean TPOT (ms):                          2.06
+Median TPOT (ms):                        2.06
+P99 TPOT (ms):                           2.08
+== B2 c32
+Successful requests:                     100
+Benchmark duration (s):                  3.01
+Output token throughput (tok/s):         4255.83
+Mean TTFT (ms):                          178.63
+Median TTFT (ms):                        177.07
+P99 TTFT (ms):                           269.33
+Mean TPOT (ms):                          5.35
+Median TPOT (ms):                        5.42
+P99 TPOT (ms):                           5.94
+== C1 c1
+Successful requests:                     100
+Benchmark duration (s):                  27.81
+Output token throughput (tok/s):         460.19
+Mean TTFT (ms):                          28.46
+Median TTFT (ms):                        27.86
+P99 TTFT (ms):                           34.52
+Mean TPOT (ms):                          1.96
+Median TPOT (ms):                        1.96
+P99 TPOT (ms):                           1.98
+== C1 c32
+Successful requests:                     100
+Benchmark duration (s):                  2.42
+Output token throughput (tok/s):         5281.41
+Mean TTFT (ms):                          164.95
+Median TTFT (ms):                        167.02
+P99 TTFT (ms):                           274.27
+Mean TPOT (ms):                          4.07
+Median TPOT (ms):                        4.08
+P99 TPOT (ms):                           4.77
+== C2 c1
+Successful requests:                     100
+Benchmark duration (s):                  27.86
+Output token throughput (tok/s):         459.41
+Mean TTFT (ms):                          29.01
+Median TTFT (ms):                        29.10
+P99 TTFT (ms):                           31.08
+Mean TPOT (ms):                          1.96
+Median TPOT (ms):                        1.96
+P99 TPOT (ms):                           1.98
+== C2 c32
+Successful requests:                     100
+Benchmark duration (s):                  2.45
+Output token throughput (tok/s):         5224.90
+Mean TTFT (ms):                          172.88
+Median TTFT (ms):                        175.30
+P99 TTFT (ms):                           261.12
+Mean TPOT (ms):                          4.06
+Median TPOT (ms):                        4.10
+P99 TPOT (ms):                           4.77
+
+######## server logs (memory lines). Mapping by weights/pool size:
+## A (benchmark server)     server_234419
+Model loading took 1.12 GiB memory and 10.788818 seconds
+Available KV cache memory: 17.92 GiB
+GPU KV cache size: 167,728 tokens, Maximum concurrency for 4,096 tokens per request: 40.95x
+## B (benchmark server)     server_235422
+Model loading took 0.71 GiB memory and 4.395134 seconds
+Available KV cache memory: 18.19 GiB
+GPU KV cache size: 170,256 tokens, Maximum concurrency for 4,096 tokens per request: 41.57x
+## C (benchmark server)     server_000253
+Model loading took 0.71 GiB memory and 4.771021 seconds
+Available KV cache memory: 17.83 GiB
+GPU KV cache size: 333,936 tokens, Maximum concurrency for 4,096 tokens per request: 81.53x
+## B again (quality server)  server_001614
+Model loading took 0.71 GiB memory and 4.374611 seconds
+Available KV cache memory: 18.37 GiB
+GPU KV cache size: 172,016 tokens, Maximum concurrency for 4,096 tokens per request: 42.00x
+## A again (quality server)  server_001730
+Model loading took 1.12 GiB memory and 4.116940 seconds
+Available KV cache memory: 18.13 GiB
+GPU KV cache size: 169,712 tokens, Maximum concurrency for 4,096 tokens per request: 41.43x
+
+######## which FP8 code path ran (from the B/C server logs)
+WARNING weight_utils.py:352 --quantization fp8 is deprecated for online quantization; use --quantization fp8_per_tensor instead.
+INFO __init__.py:797 Selected CutlassFP8ScaledMMLinearKernel for Fp8PerTensorOnlineLinearMethod
+INFO base_loader.py:151 Quantizing 112 layers of types: mlp.down_proj: 28 (from linear: fp8_per_tensor_static); mlp.gate_up_proj: 28 (from linear: fp8_per_tensor_static); self_attn. [line cut off in my paste]
+INFO base_loader.py:164 Online quantization as part of model loading took 0.07 seconds
+INFO cache.py:361 Using fp8 data type to store kv cache. (config C only)
+
+######## quality comparison (python quality_compare.py ...; the pasted summary lines)
+A_run2 vs A_run1: 50 of 50 identical (control)
+B vs A_run1: 3 of 50 identical; first divergence token position median 9, max 81
+C vs A_run1: 1 of 50 identical; first divergence token position median 9, max 66
+C vs B: 2 of 50 identical; first divergence min 1, median 8, max 61
+Note: the per-prompt differing-pair text printed by quality_compare.py is not saved here; see outputs_*.json (committed alongside, copied from the pod).
