@@ -12,6 +12,7 @@ Hands-on notes, benchmarks and code from a 4-week self-guided study of LLM infer
 | [Day 6](day-06-prefix-caching/) | Prefix caching | Hit rates in the Day 1 benchmark, TTFT with caching on/off, edge cases (changed token, shared text last, short prefix), cache code walk-through |
 | [Day 7](day-07-chunked-prefill/) | Chunked prefill | 6 decoding users + one 3,500-token prompt at `max_num_batched_tokens` 8192 / 2048 / 512: stall vs the long prompt's TTFT |
 | [Day 8](day-08-quantization/) | Quantization | BF16 vs FP8 weights vs FP8 weights + FP8 KV cache: memory, TPOT at c=1 and c=32, and output changes on 50 prompts (4-bit not measured) |
+| [Day 9](day-09-speculative-decoding/) | Speculative decoding (n-gram) | Copy-heavy vs free-writing prompts at c=1 and c=32, k sweep 2 to 16, acceptance rate, async-scheduling confound, and a 50-prompt output-identity check |
 
 ## Rebuilding the environment on a fresh GPU pod
 ```bash

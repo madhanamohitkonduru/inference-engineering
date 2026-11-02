@@ -1,0 +1,40 @@
+Day 9 raw summary lines, extracted programmatically from results/*.json (one JSON per run; per-request data is inside each file).
+RTX 4090, vLLM 0.32.0, Qwen/Qwen3-0.6B BF16, --max-model-len 4096 --no-enable-prefix-caching, 200 output tokens (ignore_eos), temperature 0.
+Servers: base = plain; ngram_kK = --speculative-config '{"method":"ngram","num_speculative_tokens":K}' (prompt_lookup_min=max=5 by default);
+noasync = plain with --no-async-scheduling. Server log for ngram: 'Async scheduling not supported with ngram-based speculative decoding and will be disabled.'
+
+Server logs: base: Model loading 1.12 GiB, KV pool 167,728 tokens. ngram_k4: KV pool 166,960 tokens.
+
+base_run1_copy_c1                  mean_tpot_ms=2.140  p99_tpot_ms=2.201  mean_ttft_ms=20.039  throughput_tok_s=448.373  requests=20
+base_run1_copy_c32                 mean_tpot_ms=3.983  p99_tpot_ms=4.194  mean_ttft_ms=98.030  throughput_tok_s=7088.697  requests=96
+base_run1_free_c1                  mean_tpot_ms=2.136  p99_tpot_ms=2.184  mean_ttft_ms=18.206  throughput_tok_s=451.049  requests=20
+base_run1_free_c32                 mean_tpot_ms=2.890  p99_tpot_ms=3.019  mean_ttft_ms=78.415  throughput_tok_s=9645.246  requests=96
+base_run2_copy_c1                  mean_tpot_ms=2.141  p99_tpot_ms=2.211  mean_ttft_ms=19.686  throughput_tok_s=448.576  requests=20
+base_run2_copy_c32                 mean_tpot_ms=3.998  p99_tpot_ms=4.150  mean_ttft_ms=105.800  throughput_tok_s=6985.610  requests=96
+base_run2_free_c1                  mean_tpot_ms=2.135  p99_tpot_ms=2.194  mean_ttft_ms=18.036  throughput_tok_s=451.498  requests=20
+base_run2_free_c32                 mean_tpot_ms=2.870  p99_tpot_ms=3.010  mean_ttft_ms=79.486  throughput_tok_s=9630.752  requests=96
+ngram_k16_run1_copy_c1             mean_tpot_ms=0.347  p99_tpot_ms=0.453  mean_ttft_ms=18.277  throughput_tok_s=2288.363  acceptance_rate=0.692  mean_acceptance_length=12.073  requests=20
+ngram_k16_run2_copy_c1             mean_tpot_ms=0.333  p99_tpot_ms=0.480  mean_ttft_ms=17.574  throughput_tok_s=2381.858  acceptance_rate=0.692  mean_acceptance_length=12.073  requests=20
+ngram_k2_run1_copy_c1              mean_tpot_ms=1.361  p99_tpot_ms=1.499  mean_ttft_ms=19.657  throughput_tok_s=688.312  acceptance_rate=0.926  mean_acceptance_length=2.851  requests=20
+ngram_k2_run2_copy_c1              mean_tpot_ms=1.328  p99_tpot_ms=1.506  mean_ttft_ms=19.352  throughput_tok_s=704.715  acceptance_rate=0.926  mean_acceptance_length=2.851  requests=20
+ngram_k4_run1_copy_c1              mean_tpot_ms=0.856  p99_tpot_ms=0.983  mean_ttft_ms=18.852  throughput_tok_s=1056.789  acceptance_rate=0.882  mean_acceptance_length=4.529  requests=20
+ngram_k4_run1_copy_c32             mean_tpot_ms=1.799  p99_tpot_ms=2.352  mean_ttft_ms=89.567  throughput_tok_s=13840.942  acceptance_rate=0.897  mean_acceptance_length=4.590  requests=96
+ngram_k4_run1_free_c1              mean_tpot_ms=1.667  p99_tpot_ms=3.422  mean_ttft_ms=17.010  throughput_tok_s=573.213  acceptance_rate=0.295  mean_acceptance_length=2.181  requests=20
+ngram_k4_run1_free_c32             mean_tpot_ms=3.022  p99_tpot_ms=5.369  mean_ttft_ms=44.536  throughput_tok_s=7743.670  acceptance_rate=0.266  mean_acceptance_length=2.065  requests=96
+ngram_k4_run2_copy_c1              mean_tpot_ms=0.880  p99_tpot_ms=0.995  mean_ttft_ms=20.008  throughput_tok_s=1023.950  acceptance_rate=0.882  mean_acceptance_length=4.529  requests=20
+ngram_k4_run2_copy_c32             mean_tpot_ms=1.803  p99_tpot_ms=2.416  mean_ttft_ms=74.921  throughput_tok_s=14055.965  acceptance_rate=0.897  mean_acceptance_length=4.590  requests=96
+ngram_k4_run2_free_c1              mean_tpot_ms=1.676  p99_tpot_ms=3.504  mean_ttft_ms=17.455  throughput_tok_s=569.579  acceptance_rate=0.295  mean_acceptance_length=2.181  requests=20
+ngram_k4_run2_free_c32             mean_tpot_ms=2.874  p99_tpot_ms=5.060  mean_ttft_ms=37.843  throughput_tok_s=8562.808  acceptance_rate=0.303  mean_acceptance_length=2.211  requests=96
+ngram_k8_run1_copy_c1              mean_tpot_ms=0.533  p99_tpot_ms=0.704  mean_ttft_ms=19.110  throughput_tok_s=1595.529  acceptance_rate=0.808  mean_acceptance_length=7.465  requests=20
+ngram_k8_run2_copy_c1              mean_tpot_ms=0.527  p99_tpot_ms=0.666  mean_ttft_ms=17.618  throughput_tok_s=1629.946  acceptance_rate=0.808  mean_acceptance_length=7.465  requests=20
+noasync_run1_copy_c1               mean_tpot_ms=3.572  p99_tpot_ms=3.826  mean_ttft_ms=21.469  throughput_tok_s=273.053  requests=20
+noasync_run1_copy_c32              mean_tpot_ms=6.600  p99_tpot_ms=6.818  mean_ttft_ms=95.434  throughput_tok_s=4504.992  requests=96
+noasync_run1_free_c1               mean_tpot_ms=3.535  p99_tpot_ms=3.770  mean_ttft_ms=17.847  throughput_tok_s=277.234  requests=20
+noasync_run1_free_c32              mean_tpot_ms=5.004  p99_tpot_ms=5.322  mean_ttft_ms=56.559  throughput_tok_s=5995.591  requests=96
+noasync_run2_copy_c1               mean_tpot_ms=3.642  p99_tpot_ms=3.813  mean_ttft_ms=21.121  throughput_tok_s=268.114  requests=20
+
+Quality (python ../day-08-quantization/quality_compare.py ...), 50 prompts, 100 tokens, temperature 0:
+base2 vs base1: 50 of 50 identical (control, async scheduling on, no speculation)
+spec1 vs base1: 16 of 50 identical; first divergence token position min 1, median 23, max 97;
+  all: [1, 2, 2, 3, 3, 5, 5, 10, 11, 11, 13, 14, 14, 15, 19, 19, 20, 26, 28, 29, 30, 32, 38, 40, 42, 58, 71, 73, 77, 81, 88, 92, 93, 97]
+spec2 vs spec1: 50 of 50 identical (speculative runs repeat exactly). spec = ngram k=4 server. Full per-pair text: cmp_spec1.txt (base1 vs spec1); outputs_*.json.
