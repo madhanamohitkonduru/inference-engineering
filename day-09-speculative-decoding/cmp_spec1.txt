@@ -1,0 +1,173 @@
+
+===== spec1 vs base1: 16 of 50 identical =====
+first divergence at token position: min 1, median 23, max 97; all: [1, 2, 2, 3, 3, 5, 5, 10, 11, 11, 13, 14, 14, 15, 19, 19, 20, 26, 28, 29, 30, 32, 38, 40, 42, 58, 71, 73, 77, 81, 88, 92, 93, 97]
+
+[0] prompt 'The capital of France is'  diverges at ~token 13
+   ...'al of France is also the capital of the '
+   base1: 'French Republic. The capital of France is also the capital of the French government. The c'
+   spec1: 'Republic of France. The capital of France is also the capital of the European Union. The c'
+
+[2] prompt 'Write a haiku about autumn rain:'  diverges at ~token 11
+   ...' \n\nThe leaves fall in a circle,  \nA '
+   base1: "river flows in a circle,  \nThe sky is blue,  \nBut the rain is falling... \n\nWait, that's a "
+   spec1: 'single drop falls from the sky,  \nThe wind carries the scent of the forest. \n\nThe haiku is'
+
+[5] prompt 'In 1969, humans first'  diverges at ~token 32
+   ...'number has been discovered by humans. Th'
+   base1: 'is is the first time in history that a prime number has been discovered by humans. This is'
+   spec1: 'e number 1969 is a prime number. What is the value of $ \\frac{1969}{1969} \\times \\frac{196'
+
+[6] prompt 'A good way to learn a new language is'  diverges at ~token 29
+   ...'owever, the problem is that many people '
+   base1: 'do not know how to speak the language. So, the author is making a point about the importan'
+   spec1: 'who are not native speakers of the language may speak it well. So, the conclusion that the'
+
+[8] prompt 'Photosynthesis is the process by which'  diverges at ~token 73
+   ...'iciency of photosynthesis to reduce the '
+   base1: 'amount of CO2 emissions and promote sustainable development?\n\nThe answer is to develop new'
+   spec1: 'carbon footprint of the planet?\n\nOne possible approach is to develop new types of photosyn'
+
+[9] prompt 'Q: What is 17 times 23?\nA:'  diverges at ~token 1
+   ...' '
+   base1: '391\nA: 391\nA: 391\nA: 391\nA: 391\nA: 391\nA: 391\nA: 391\nA: 391\nA: 391\nA: 391\nA: 391\nA: 391\nA:'
+   spec1: '17 times 23 is 391.\nA: 17 times 23 is 391.\nA: 17 times 23 is 391.\nA: 17 times 23 is 391.\nA'
+
+[10] prompt 'Once upon a time, in a small village by the sea,'  diverges at ~token 20
+   ...'d in a cottage that was surrounded by a '
+   base1: 'garden. The garden was filled with flowers, trees, and animals. One day, a storm came and '
+   spec1: 'forest. One day, she noticed that the sun was setting, and she felt a sense of wonder and '
+
+[12] prompt 'To make a cup of tea, first'  diverges at ~token 19
+   ...'water, then add a cup of milk, then add '
+   base1: 'a cup of sugar, then add a cup of tea, then add a cup of milk, then add a cup of tea, and '
+   spec1: 'some sugar, then add some tea leaves. The total amount of tea is 1 cup. How many cups of t'
+
+[13] prompt 'The Pythagorean theorem states that'  diverges at ~token 3
+   ...' in a right'
+   base1: ' triangle, the sum of the squares of the two shorter sides is equal to the square of the h'
+   spec1: '-angled triangle, the square of the hypotenuse is equal to the sum of the squares of the o'
+
+[14] prompt 'A binary search works by'  diverges at ~token 42
+   ...'icient for large data sets. What is the '
+   base1: 'maximum number of comparisons needed to find the number in the middle of a sorted list of '
+   spec1: 'correct name of the algorithm that is used to find the number of comparisons needed to fin'
+
+[17] prompt 'SQL query to count rows in a table named users:\n'  diverges at ~token 77
+   ...'e number of unique names. So, the query '
+   base1: 'is correct.\n\nBut what if the table has multiple rows with the same name, and we want to co'
+   spec1: 'will return the total number of rows, regardless of duplicates. This is because the COUNT('
+
+[18] prompt 'The speed of light is approximately'  diverges at ~token 40
+   ...'istance relate to the speed of light?\n\nT'
+   base1: 'he answer is 3.84 × 10^8 m. Let me check my calculation. I used the formula $ v = \\frac{d}'
+   spec1: 'o find the distance from the Earth to the Moon, we can use the formula for the speed of li'
+
+[19] prompt 'Three tips for a job interview:\n1.'  diverges at ~token 3
+   ...' Be ready '
+   base1: 'for the questions\n2. Be prepared for the answers\n3. Be confident in your answers\n\nWhich of'
+   spec1: 'to talk\n2. Be ready to listen\n3. Be ready to ask questions\nThese three tips are important '
+
+[20] prompt 'Machine learning is'  diverges at ~token 14
+   ...'volutionized the field of data science. '
+   base1: 'However, it is not without its challenges. One of the most significant challenges is the i'
+   spec1: 'It enables us to analyze large datasets and make predictions based on those datasets. Howe'
+
+[21] prompt 'The Great Wall of China was built to'  diverges at ~token 58
+   ..."ina is a symbol of the Chinese people's "
+   base1: 'national pride and national strength. The Great Wall of China is a symbol of the Chinese p'
+   spec1: "spirit and culture. The Great Wall of China is a symbol of the Chinese people's spirit and"
+
+[22] prompt 'Summarize the plot of Romeo and Juliet in three sentences:'  diverges at ~token 28
+   ...', and the story is about their love and '
+   base1: 'deaths. The summary should be in English.\nAnswer:\n\nRomeo and Juliet is a story set in a sm'
+   spec1: 'the tragic ending.\nAnswer:\n\nRomeo and Juliet is a story set in a small town in Italy, wher'
+
+[23] prompt 'An example of a renewable energy source is'  diverges at ~token 71
+   ...'essed from sunlight, which is a natural '
+   base1: 'and continuous process.\n\n- **B. wind** – wind is also a renewable energy source as it is g'
+   spec1: 'process that can be replenished over time.\n\n- **B. wind** – wind is also a renewable energ'
+
+[24] prompt 'The human heart has four chambers:'  diverges at ~token 93
+   ...'id and mitral valves, respectively. The '
+   base1: 'right atrium and left atrium are'
+   spec1: 'tricuspid and mitral valves are'
+
+[25] prompt 'What is the difference between weather and climate?'  diverges at ~token 11
+   ...'ovide an example of a weather event and '
+   base1: 'a climate event? Also, what is the role of the atmosphere in both weather and climate?\n\n**'
+   spec1: 'explain how it affects the environment? Also, can you explain the concept of climate and p'
+
+[26] prompt 'Dear customer, we are sorry to inform you that'  diverges at ~token 10
+   ...'s not available for the following reason'
+   base1: 's: the information is not available for the following reasons: the information is not avai'
+   spec1: ': the information is not available for the following reason: the information is not availa'
+
+[27] prompt 'A neural network learns by'  diverges at ~token 30
+   ...' fundamental process in machine learning'
+   base1: '. However, training can be time-consuming and resource-intensive. What are the advantages '
+   spec1: ", and it is used to improve the model's performance. However, training can be time-consumi"
+
+[28] prompt 'The largest planet in our solar system is'  diverges at ~token 97
+   ...'n our solar system, not Earth). \n\nWait, '
+   base1: "that's confusing."
+   spec1: 'hold on! I'
+
+[29] prompt 'Write a limerick about a cat:'  diverges at ~token 38
+   ...' is a cat, and the cat is a cat." \n\nThe '
+   base1: 'limerick has 5 lines, each line has 5 syllables. The cat is a cat, and the cat is a cat, a'
+   spec1: 'cat is a cat, and the cat is a cat, and the cat is a cat, and the cat is a cat, and the ca'
+
+[33] prompt 'JavaScript function that adds two numbers:\n'  diverges at ~token 14
+   ...'nction add(a, b) {\n    return a + b;\n}\n\n'
+   base1: 'But when I call this function, I get an error: "Cannot read the value of \'a\' from the stri'
+   spec1: 'function add(a, b, c) {\n    return a + b + c;\n}\n\nfunction add(a, b, c, d) {\n    return a +'
+
+[34] prompt 'Mount Everest is located in'  diverges at ~token 26
+   ...'he altitude of the mountain is measured '
+   base1: 'in meters. The altitude of the mountain is measured in meters. The altitude of the mountai'
+   spec1: 'by the height of the mountain from the sea level. The altitude of the mountain is measured'
+
+[37] prompt "Newton's three laws of motion are"  diverges at ~token 81
+   ...' used to describe the motion of objects '
+   base1: 'and the forces acting on them. The first law is also known as the law of inertia. Newton'
+   spec1: 'in the universe. The first law is also known as the law of inertia. The second law is'
+
+[38] prompt 'A typical day for a software engineer starts with'  diverges at ~token 2
+   ...' a '
+   base1: 'morning coffee, then a morning routine, then a morning meeting. The morning routine includ'
+   spec1: '10-minute workday, which is 60 minutes. The engineer works 10 hours a day, which is 600 mi'
+
+[40] prompt 'To center a div in CSS you can'  diverges at ~token 15
+   ...'center property is used to center a div '
+   base1: 'horizontally and vertically. The center property is a CSS property that can be used to cen'
+   spec1: 'in a container. The center property is a CSS property that allows you to center a div in a'
+
+[43] prompt 'The internet works by'  diverges at ~token 2
+   ...' connecting '
+   base1: 'computers and devices through a network, which is a set of interconnected computers and de'
+   spec1: 'a large number of computers, and each computer has a unique identifier. This identifier is'
+
+[44] prompt 'An important rule of good writing is'  diverges at ~token 5
+   ...' that you should not '
+   base1: 'use any of the following: (A) A. A. A. A. A. A. A. A. A. A. A. A. A. A. A. A. A. A. A. A. '
+   spec1: 'write in a way that is too verbose. If you write in a way that is too verbose, you are not'
+
+[46] prompt 'The Industrial Revolution began in'  diverges at ~token 19
+   ...'evelopment of the industrial revolution '
+   base1: 'is the emergence of the steam engine. The correct statement is ___________.\n\nA. The steam '
+   spec1: 'was the emergence of the steam engine. The correct statement is ___________.\n\nA. The steam'
+
+[47] prompt 'If a train travels 60 miles in 1.5 hours, its average speed is'  diverges at ~token 88
+   ...'{\\text{Total time}}\n$$\n\nGiven that the t'
+   base1: 'rain travels 120 miles in 2.5 hours'
+   spec1: 'otal distance is 120 miles and the total time is'
+
+[48] prompt 'Meditation can help people by'  diverges at ~token 92
+   ...'assage is written in a way that is most '
+   base1: 'likely to be used for which of the following'
+   spec1: 'similar to which of the following options?\nA'
+
+[49] prompt 'The theory of evolution says that'  diverges at ~token 5
+   ...' all living things are '
+   base1: 'connected and that all living things are related. This theory is supported by the fact tha'
+   spec1: 'in a state of constant change. This is because of the fact that the environment changes. S'
