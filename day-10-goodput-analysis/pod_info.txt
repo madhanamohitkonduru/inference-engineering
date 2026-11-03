@@ -1,0 +1,6 @@
+Tue Nov  3 22:48:37 UTC 2026
+CPU(s):                                  80
+Model name:                              Intel(R) Xeon(R) Gold 6133 CPU @ 2.50GHz
+CPU(s) scaling MHz:                      39%
+name, driver_version
+NVIDIA GeForce RTX 4090, 595.91.07
