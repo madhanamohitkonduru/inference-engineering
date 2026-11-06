@@ -1,0 +1,10 @@
+/root/logs/server_193727.log:enable_prefix_caching=False
+/root/logs/server_193727.log:kv_cache_dtype=auto
+/root/logs/server_193727.log:quantization=None
+/root/logs/server_195252.log:enable_prefix_caching=False
+/root/logs/server_195252.log:kv_cache_dtype=auto
+/root/logs/server_195252.log:quantization=fp8
+/root/logs/server_200002.log:enable_prefix_caching=False
+/root/logs/server_200002.log:kv_cache_dtype=fp8
+/root/logs/server_200002.log:kv_cache_dtype=torch
+/root/logs/server_200002.log:quantization=fp8
