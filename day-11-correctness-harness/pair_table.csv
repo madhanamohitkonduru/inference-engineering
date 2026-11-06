@@ -1,0 +1,5 @@
+pair,positions,mean_abs_logprob_diff,max_abs_logprob_diff,flip_rate_pct,approx_kl_mean,perplexity_ref,perplexity_pair,perplexity_diff
+control (BF16 run 2),25550,0.000000,0.0000,0.000,0.00000000,26.8387,26.8387,+0.0000
+batch shape (BF16 c=32),25550,0.029816,0.5403,1.757,0.00082816,26.8387,26.8367,-0.0020
+FP8 weights,25550,0.156309,5.0994,7.710,0.01886972,26.8387,27.2692,+0.4304
+FP8 weights + FP8 KV,25550,0.192922,6.2770,9.331,0.02751825,26.8387,27.4928,+0.6541

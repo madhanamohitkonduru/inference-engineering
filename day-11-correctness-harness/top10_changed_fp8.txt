@@ -1,0 +1,50 @@
+#1 passage 17 position 42: ... the Imagist emphasis on Chinese and Japanese poetry . William Carlos[' Williams']
+   true token logprob: BF16 -0.55 (57.8%)  FP8 -5.65 (0.4%)
+   BF16 top3: ' Williams' 57.8%, '#11351' 3.9%, ',' 3.3%
+   FP8  top3: ' and' 21.8%, ' in' 21.8%, ' has' 11.7%
+   top1-top2 gap (prob points): BF16 53.8  FP8 0.0   flip: True
+#2 passage 15 position 351: ... the great @-@ nephew of astronomer Clyde Tomba['ugh']
+   true token logprob: BF16 -1.05 (35.1%)  FP8 -5.89 (0.3%)
+   BF16 top3: 'ugh' 35.1%, ' and' 31.0%, '#359' 7.8%
+   FP8  top3: ' and' 52.6%, ' .' 10.4%, ' ,' 10.4%
+   top1-top2 gap (prob points): BF16 4.1  FP8 42.2   flip: True
+#3 passage 49 position 206: ...den ground . In Italy headstones were carved from Chiampo[' Per']
+   true token logprob: BF16 -14.53 (0.0%)  FP8 -9.71 (0.0%)
+   BF16 top3: 'zz' 39.8%, '#2367' 5.1%, '#46814' 4.8%
+   FP8  top3: ' (' 10.3%, ' stone' 8.6%, ',' 6.3%
+   top1-top2 gap (prob points): BF16 34.7  FP8 1.8   flip: True
+#4 passage 43 position 388: ...6 , vocalist Corey Taylor said that Come What ( ever )[' May']
+   true token logprob: BF16 -11.24 (0.0%)  FP8 -6.83 (0.1%)
+   BF16 top3: ' was' 34.9%, ' is' 24.0%, ' and' 11.3%
+   FP8  top3: ' was' 17.1%, ' and' 17.1%, ' You' 13.3%
+   top1-top2 gap (prob points): BF16 10.9  FP8 0.0   flip: False
+#5 passage 3 position 209: ...935 – 37 , both at Kure[' Naval']
+   true token logprob: BF16 -9.77 (0.0%)  FP8 -12.99 (0.0%)
+   BF16 top3: ' .' 49.3%, ' and' 8.6%, '#16448' 6.7%
+   FP8  top3: ' .' 33.8%, '.' 14.1%, ' and' 11.0%
+   top1-top2 gap (prob points): BF16 40.7  FP8 19.7   flip: False
+#6 passage 2 position 297: ...0 officers and enlisted men . They had a metacentric[' height']
+   true token logprob: BF16 -6.46 (0.2%)  FP8 -3.24 (3.9%)
+   BF16 top3: ' position' 86.4%, ' depth' 4.9%, '#44996' 1.6%
+   FP8  top3: ' position' 53.8%, ' depth' 22.4%, ' height' 3.9%
+   top1-top2 gap (prob points): BF16 81.5  FP8 31.4   flip: False
+#7 passage 45 position 24: ... ( IPC ) for other subjects . \n UPM Bint['ulu']
+   true token logprob: BF16 -3.86 (2.1%)  FP8 -7.07 (0.1%)
+   BF16 top3: 'u' 35.1%, 'i' 16.6%, '#360' 10.0%
+   FP8  top3: 'i' 44.0%, 'u' 18.3%, 'ang' 9.8%
+   top1-top2 gap (prob points): BF16 18.5  FP8 25.6   flip: True
+#8 passage 17 position 74: ... an introduction for the book publication of Ginsberg 's How['l']
+   true token logprob: BF16 -1.06 (34.7%)  FP8 -4.16 (1.6%)
+   BF16 top3: ' to' 53.8%, 'l' 34.7%, 'son' 4.4%
+   FP8  top3: ' to' 91.0%, 'l' 1.6%, ' To' 1.2%
+   top1-top2 gap (prob points): BF16 19.1  FP8 89.4   flip: False
+#9 passage 11 position 14: ...ia , the name then used for Amphibia . Stego['ceph']
+   true token logprob: BF16 -3.41 (3.3%)  FP8 -0.33 (72.1%)
+   BF16 top3: ' ,' 11.5%, ' is' 7.5%, ' and' 5.8%
+   FP8  top3: 'ceph' 72.1%, 'ch' 2.0%, ' and' 1.8%
+   top1-top2 gap (prob points): BF16 4.1  FP8 70.1   flip: True
+#10 passage 13 position 68: ...5 / 35 KT . HOWEVER ... OFTENT['IM']
+   true token logprob: BF16 -11.95 (0.0%)  FP8 -9.61 (0.0%)
+   BF16 top3: 'H' 92.4%, '#1799' 4.1%, '#23913' 0.9%
+   FP8  top3: 'H' 89.5%, '#1799' 3.1%, '#23913' 1.6%
+   top1-top2 gap (prob points): BF16 88.4  FP8 86.4   flip: False

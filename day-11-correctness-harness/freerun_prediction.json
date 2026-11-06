@@ -1,0 +1,17 @@
+{
+ "batch shape (BF16 c=32)": {
+  "flip_rate": 0.017573385518590997,
+  "expected_identical_of_50": 8.491451390133363,
+  "empirical_no_flip_first100_of_50": 5
+ },
+ "FP8 weights": {
+  "flip_rate": 0.07710371819960861,
+  "expected_identical_of_50": 0.016377953478577047,
+  "empirical_no_flip_first100_of_50": 0
+ },
+ "FP8 weights + FP8 KV": {
+  "flip_rate": 0.09330724070450098,
+  "expected_identical_of_50": 0.0027860233888377215,
+  "empirical_no_flip_first100_of_50": 0
+ }
+}
