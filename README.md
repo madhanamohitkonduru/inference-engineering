@@ -14,6 +14,7 @@ Hands-on notes, benchmarks and code from a 4-week self-guided study of LLM infer
 | [Day 8](day-08-quantization/) | Quantization | BF16 vs FP8 weights vs FP8 weights + FP8 KV cache: memory, TPOT at c=1 and c=32, and output changes on 50 prompts (4-bit not measured) |
 | [Day 9](day-09-speculative-decoding/) | Speculative decoding (n-gram) | Copy-heavy vs free-writing prompts at c=1 and c=32, k sweep 2 to 16, acceptance rate, async-scheduling confound, and a 50-prompt output-identity check |
 | [Day 10](day-10-goodput-analysis/) | Percentiles, goodput and capacity | pandas and DuckDB analysis of the Day 9 data, then a c=1 to 256 sweep with per-request TTFT/TPOT: latency-vs-throughput curve, goodput under an SLO, capacity (16 users per 4090 at p99 TTFT <= 200 ms), prefix caching on vs off |
+| [Day 11](day-11-correctness-harness/) | Correctness harness, part 1 | Teacher-forced logprob capture and compare tool: noise floor (batch shape: 1.8% top-1 flips) vs FP8 (7.7%) vs FP8+KV (9.3%), KL, perplexity, most-changed tokens, free-run prediction check against Days 8 and 9 |
 
 ## Rebuilding the environment on a fresh GPU pod
 ```bash
