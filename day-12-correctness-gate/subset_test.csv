@@ -1,0 +1,4 @@
+subset_size,sampling,batch_shape_false_alarm_pct,fp8_miss_pct,fp8kv_miss_pct
+10,without replacement,0.0,0.0,0.0
+25,without replacement,0.0,0.0,0.0
+50,with replacement (bootstrap),0.0,0.0,0.0
