@@ -28,7 +28,8 @@ def overall(pmeans, idx):
     """Overall metrics for a selection of passages. idx: (n_sets, k) passage indices (repeats allowed)."""
     return {"flip_rate": pmeans["flip_rate"][idx].mean(1), "kl": pmeans["kl"][idx].mean(1),
             "abs_diff": pmeans["abs_diff"][idx].mean(1),
-            "ppl_change": np.exp(-pmeans["lp_cand"][idx].mean(1)) - np.exp(-pmeans["lp_ref"][idx].mean(1))}
+            "ppl_change": np.exp(-pmeans["lp_cand"][idx].mean(1)) - np.exp(-pmeans["lp_ref"][idx].mean(1)),
+            "ppl_change_pct": 100 * (np.exp(-pmeans["lp_cand"][idx].mean(1)) / np.exp(-pmeans["lp_ref"][idx].mean(1)) - 1)}
 
 
 def bootstrap_idx(n, k, n_sets, rng):

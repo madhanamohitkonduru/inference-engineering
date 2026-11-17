@@ -1,0 +1,9 @@
+{
+  "_comment": "PROVISIONAL (Day 11 reasoning). Final values are set in Step 6 from the Day 12 noise captures.",
+  "flip_rate_pct": 4.0,
+  "kl_mean": 0.005,
+  "ppl_change_pct": 0.5,
+  "min_metrics_failing": 2,
+  "bootstrap_resamples": 1000,
+  "seed": 12
+}
