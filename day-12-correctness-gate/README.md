@@ -95,14 +95,14 @@ Measured claim: **a change like rope_theta 0.5x (flip rate about 5%, mean KL abo
 3. **What happens to the false-positive rate if you test on only 10 passages instead of 50?** Each metric is averaged over fewer passages, so it wobbles more and noise can occasionally cross the line. Here the effect is tiny because the lines sit well above the noise: the only false alarm was 0.6% (chunk-256, any-1-of-3 rule, 10 passages); a line closer to the noise would show a larger effect.
 
 ## Code notes (Step 7)
-**Not done.** I could not open vLLM's `check_logprobs_close` (in `tests/models/`) from my side, so the two questions (what it compares; how it decides "close enough" and how that differs from this gate) are open. To do: read the function and write a few sentences.
+**Skipped by choice.** I did not read vLLM's `check_logprobs_close` (in `tests/models/`), so the two questions (what it compares; how it decides "close enough" and how that differs from this gate) are unanswered. It is a possible starting point for an upstream PR idea.
 
 ## What I did not do
 - One model (0.6B), one text set (50 WikiText-2 passages), one GPU type; the top-20 KL is an approximation.
 - No downstream-task evaluation: flips, KL and perplexity are proxies for quality.
 - Only six noise sources and two rope settings; the thresholds were chosen on the same data used to score them (in-sample).
 - Smaller damage than rope 0.5x was not tested.
-- vLLM's own `check_logprobs_close` not read (above). Upstream PR hunt: **not started**.
+- vLLM's own `check_logprobs_close` not read (Step 7 skipped). Upstream PR hunt: **not started**.
 
 ## Files
 `gate.py`, `test_gate.py`, `gate_thresholds.json`, `passage_metrics.py`, `bootstrap_day11.py` (+ `bootstrap_intervals.csv`, `subset_test.csv`), `candidate_table.py` / `.csv`, `scoreboard.py` / `scoreboard.csv` / `subset_rates.csv`, `captures/*.json.gz` (raw), `pod_info.txt`, `server_flags_check.txt`.
