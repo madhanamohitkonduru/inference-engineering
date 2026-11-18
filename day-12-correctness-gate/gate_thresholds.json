@@ -1,8 +1,8 @@
 {
-  "_comment": "PROVISIONAL (Day 11 reasoning). Final values are set in Step 6 from the Day 12 noise captures.",
-  "flip_rate_pct": 4.0,
-  "kl_mean": 0.005,
-  "ppl_change_pct": 0.5,
+  "_rationale": "Each line sits roughly half-way (in ratio terms) between the largest harmless noise measured (6 noise sources) and the mildest bad change (rope_theta 0.5x), using bootstrap interval ends. Chosen Day 12: flip rate 3.5% (noise max 2.06%, upper end 2.26%; mild rope lower end 4.68%), mean KL 0.004 (noise max 0.00105; mild rope lower end 0.00791), perplexity change +0.2% (noise upper end +0.084; mild rope lower end +0.37). Gate fails when at least 2 of 3 metrics fail.",
+  "flip_rate_pct": 3.5,
+  "kl_mean": 0.004,
+  "ppl_change_pct": 0.2,
   "min_metrics_failing": 2,
   "bootstrap_resamples": 1000,
   "seed": 12

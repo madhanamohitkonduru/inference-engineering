@@ -1,0 +1,61 @@
+kind,candidate,rule,subset_size,gate_fails_pct
+noise,c=2,2of3,10,0.0
+noise,c=2,2of3,25,0.0
+noise,c=2,2of3,50,0.0
+noise,c=2,any,10,0.0
+noise,c=2,any,25,0.0
+noise,c=2,any,50,0.0
+noise,c=8,2of3,10,0.0
+noise,c=8,2of3,25,0.0
+noise,c=8,2of3,50,0.0
+noise,c=8,any,10,0.0
+noise,c=8,any,25,0.0
+noise,c=8,any,50,0.0
+noise,c=16,2of3,10,0.0
+noise,c=16,2of3,25,0.0
+noise,c=16,2of3,50,0.0
+noise,c=16,any,10,0.0
+noise,c=16,any,25,0.0
+noise,c=16,any,50,0.0
+noise,c=32,2of3,10,0.0
+noise,c=32,2of3,25,0.0
+noise,c=32,2of3,50,0.0
+noise,c=32,any,10,0.0
+noise,c=32,any,25,0.0
+noise,c=32,any,50,0.0
+noise,chunk-256,2of3,10,0.0
+noise,chunk-256,2of3,25,0.0
+noise,chunk-256,2of3,50,0.0
+noise,chunk-256,any,10,0.6
+noise,chunk-256,any,25,0.0
+noise,chunk-256,any,50,0.0
+noise,eager,2of3,10,0.0
+noise,eager,2of3,25,0.0
+noise,eager,2of3,50,0.0
+noise,eager,any,10,0.0
+noise,eager,any,25,0.0
+noise,eager,any,50,0.0
+bad,rope 0.5x (mild),2of3,10,100.0
+bad,rope 0.5x (mild),2of3,25,100.0
+bad,rope 0.5x (mild),2of3,50,100.0
+bad,rope 0.5x (mild),any,10,100.0
+bad,rope 0.5x (mild),any,25,100.0
+bad,rope 0.5x (mild),any,50,100.0
+bad,FP8,2of3,10,100.0
+bad,FP8,2of3,25,100.0
+bad,FP8,2of3,50,100.0
+bad,FP8,any,10,100.0
+bad,FP8,any,25,100.0
+bad,FP8,any,50,100.0
+bad,FP8 + KV,2of3,10,100.0
+bad,FP8 + KV,2of3,25,100.0
+bad,FP8 + KV,2of3,50,100.0
+bad,FP8 + KV,any,10,100.0
+bad,FP8 + KV,any,25,100.0
+bad,FP8 + KV,any,50,100.0
+bad,rope 0.1x (big),2of3,10,100.0
+bad,rope 0.1x (big),2of3,25,100.0
+bad,rope 0.1x (big),2of3,50,100.0
+bad,rope 0.1x (big),any,10,100.0
+bad,rope 0.1x (big),any,25,100.0
+bad,rope 0.1x (big),any,50,100.0

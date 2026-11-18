@@ -1,0 +1,11 @@
+kind,candidate,flip_fail,kl_fail,ppl_fail,metrics_failed,verdict_2of3,verdict_any
+noise,c=2,False,False,False,0,PASS,PASS
+noise,c=8,False,False,False,0,PASS,PASS
+noise,c=16,False,False,False,0,PASS,PASS
+noise,c=32,False,False,False,0,PASS,PASS
+noise,chunk-256,False,False,False,0,PASS,PASS
+noise,eager,False,False,False,0,PASS,PASS
+bad,rope 0.5x (mild),True,True,True,3,FAIL,FAIL
+bad,FP8,True,True,True,3,FAIL,FAIL
+bad,FP8 + KV,True,True,True,3,FAIL,FAIL
+bad,rope 0.1x (big),True,True,True,3,FAIL,FAIL
