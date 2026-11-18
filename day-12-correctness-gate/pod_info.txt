@@ -1,0 +1,6 @@
+Wed Nov 18 19:55:39 UTC 2026
+CPU(s):                                  96
+Model name:                              AMD EPYC 7K62 48-Core Processor
+CPU(s) scaling MHz:                      76%
+name, driver_version, memory.total [MiB], uuid
+NVIDIA GeForce RTX 4090, 595.112.07, 24564 MiB, GPU-91238a75-0347-0abb-be18-c797bbcfbc80

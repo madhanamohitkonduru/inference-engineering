@@ -1,0 +1,23 @@
+== BF16 server (c-sweep) ==
+enable_prefix_caching=False
+enforce_eager=False
+kv_cache_dtype=auto
+quantization=None
+== eager server ==
+enable_prefix_caching=False
+enforce_eager=True
+kv_cache_dtype=auto
+quantization=None
+== chunk256 server ==
+enable_prefix_caching=False
+enforce_eager=False
+kv_cache_dtype=auto
+max_num_batched_tokens=256.
+quantization=None
+== rope mild server ==
+== rope mild, FIRST ATTEMPT: flat spelling, silently ignored (compare vs reference was exactly zero) ==
+'hf_overrides': {'rope_theta': 500000}
+== rope mild server (nested spelling) ==
+'hf_overrides': {'rope_parameters': {'rope_type': 'default', 'rope_theta': 500000}}
+== rope big server (nested spelling) ==
+'hf_overrides': {'rope_parameters': {'rope_type': 'default', 'rope_theta': 100000}}
