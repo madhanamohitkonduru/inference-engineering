@@ -1,0 +1,16 @@
+GATE  reference=captures/new_bf16_c1.json.gz  candidate=captures/rope_flat_ignored_c1.json.gz  (50 passages)
+metric                        value   95% bootstrap CI         threshold  result
+flip rate (%)               0.00000   [0.00000, 0.00000]        3.50000  PASS
+mean KL                     0.00000   [0.00000, 0.00000]        0.00400  PASS
+perplexity change (%)       0.00000   [0.00000, 0.00000]        0.20000  PASS
+rule: gate fails when at least 2 of 3 metrics fail (decision uses the point value) -> 0 failed
+VERDICT: PASS
+
+GATE  reference=captures/new_bf16_c1.json.gz  candidate=captures/bad_rope_mild_c1.json.gz  (50 passages)
+metric                        value   95% bootstrap CI         threshold  result
+flip rate (%)               5.06067   [4.68483, 5.39736]        3.50000  FAIL
+mean KL                     0.00831   [0.00791, 0.00873]        0.00400  FAIL
+perplexity change (%)       0.63852   [0.36840, 0.91300]        0.20000  FAIL
+rule: gate fails when at least 2 of 3 metrics fail (decision uses the point value) -> 3 failed
+VERDICT: FAIL
+
