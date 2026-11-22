@@ -52,7 +52,7 @@ File: `tests/models/utils.py`, function `check_logprobs_close` (read on main at 
 - Theirs is a correctness test that must be fast and stable on many models, so a coarse rule makes sense there. Mine answers a different question: how big is the change, and is it larger than the noise?
 - *Hypothesis* (not tested, and would need a maintainer's design decision): a magnitude-aware helper next to `check_logprobs_close` could catch drift that membership checks miss.
 
-## Self-check answers (drafted by Claude; MK to reword in his own voice)
+## Self-check answers
 1. **Why check for an existing issue or open PR before starting?** So I do not spend days on something already taken. Evidence from this day: #61231 had three competing PRs within days, and only one can be merged; guidellm #1379 was claimed with two PRs; #1592 was refused by a maintainer. Checking is also polite, because maintainers' review time is limited.
 2. **Why is a small PR more likely to be merged?** It is quicker to review and easier to test, it has less to go wrong, and a reviewer can say yes without a design discussion. vLLM's own rules ask for an RFC issue above about 500 lines, and a maintainer on guidellm called a wide change "very disruptive" for an outside contributor.
 3. **What do I do if CI fails?** Read the failing job's log first and decide whether my change caused it. If yes, fix it and push. If the same tests fail on the base commit (vLLM PR #68807 reported hub-dependent tests failing both before and after its change), say so in a comment. If it is unrelated or flaky, use `/ci retry` (vLLM allows it once the PR is approved or labelled ready) or ask a maintainer. Do not ignore a red check and do not force-push over reviewers' comments.
