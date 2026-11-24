@@ -23,3 +23,5 @@ Other fields: vocab 151,936 (Qwen3) and 152,064 (Qwen2.5-72B); dtype bfloat16.
 Caveats:
 - A100: the datasheet table came out garbled when I read it (three value columns, 40GB and 80GB mixed). 2,039 GB/s is the figure the text ties to the 80GB model; I did not confirm which of SXM or PCIe it belongs to. A100 80GB PCIe may have a different bandwidth. To verify before using it for an exact claim.
 - NVIDIA's pages do not say whether the NVLink or PCIe figures are per direction or both directions combined. My own arithmetic for PCIe 4.0 x16: 16 GT/s x 16 lanes x 128/130 / 8 = about 31.5 GB/s per direction, so the listed 64 GB/s is both directions added (*finding*, arithmetic from the PCIe 4.0 rate; the 16 GT/s figure is from PCI-SIG coverage). For NVLink, 900 GB/s on H100/H200 is most likely both directions combined (about 450 GB/s each way); that is a *hypothesis* until I read the Hopper architecture whitepaper.
+
+Update (2026-11-24): Runpod's H100 guide (not NVIDIA) says the H100 SXM NVLink 4.0 figure is "900 GB/s bidirectional bandwidth per GPU", which supports the hypothesis above that it is about 450 GB/s each way. See `pod_options.md`.
