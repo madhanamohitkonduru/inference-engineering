@@ -1,7 +1,9 @@
 """Day 14 Step 5: decode-time model for tensor parallelism.  python3 decode_model.py
 
 step time = (weight bytes read + KV bytes read) / memory bandwidth              [per GPU, after splitting by TP]
-          + (2 x layers) x (all-reduce latency + message bytes / link bandwidth) [only when TP > 1]
+          + (2 x layers + 2) x (all-reduce latency + message bytes / link bandwidth) [only when TP > 1]
+(the extra 2 per step, found in the Step 6 code reading: one all-reduce after the embedding lookup and one gather of the
+logits; both are charged the same latency and the small hidden-size message, which understates the logits gather)
 tokens/s per user = 1 / step time   (one new token per user per step)
 
 ASSUMPTIONS, not measurements (Day 15 will measure them):
@@ -19,6 +21,7 @@ import memory_plan as mp
 OUT = Path(__file__).parent / "tables"
 OUT.mkdir(exist_ok=True)
 
+EXTRA_COMM_OPS = 2   # embedding all-reduce + logits gather per step (vLLM v0.32.0 code reading, Step 6)
 LINKS = {"nvlink": dict(latency=10e-6, bw=450e9), "pcie4": dict(latency=30e-6, bw=31.5e9)}
 
 
@@ -34,7 +37,7 @@ def step_time(model, gpu, tp, link=None, context=1024, batch=1, latency=None, li
         lat = lk["latency"] if latency is None else latency
         bw = lk["bw"] if link_bw is None else link_bw
         message = batch * m["hidden"] * 2          # one hidden vector per user, BF16
-        comm = 2 * m["layers"] * (lat + message / bw)
+        comm = (2 * m["layers"] + EXTRA_COMM_OPS) * (lat + message / bw)
     return memory_time, comm
 
 

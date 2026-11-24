@@ -11,9 +11,9 @@ class Decode(unittest.TestCase):
         self.assertEqual(ct, 0.0)
         self.assertAlmostEqual(mt, (r["weights_read_gpu"] + 1024 * r["kv_per_token_gpu"]) / 3.35e12, places=12)
 
-    def test_allreduce_count_is_two_per_layer(self):
+    def test_comm_count_is_two_per_layer_plus_two_per_step(self):
         _, ct = dm.step_time("qwen3-8b", "h100-80", 2, "nvlink", latency=1e-6, link_bw=1e30)   # bandwidth term ~ 0
-        self.assertAlmostEqual(ct, 2 * 36 * 1e-6, places=12)
+        self.assertAlmostEqual(ct, (2 * 36 + 2) * 1e-6, places=12)
 
     def test_more_latency_is_slower_and_more_link_bandwidth_is_not_slower(self):
         a = dm.tps("qwen3-8b", "h100-80", 2, "nvlink", latency=5e-6)
