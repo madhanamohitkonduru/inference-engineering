@@ -1,0 +1,49 @@
+model,gpu,tp,verdict,mark,weights_gib,free_kv_gib,kv_tokens,seqs_8192
+qwen3-8b,rtx4090,1,fits with too little KV (< 4 sequences of 8192),tight,15.26,4.28,31191,3
+qwen3-8b,rtx4090,2,fits,FITS,7.63,11.91,173477,21
+qwen3-8b,rtx4090,4,fits,FITS,3.81,15.73,458049,55
+qwen3-8b,rtx4090,8,fits,FITS,1.91,17.63,1027193,125
+qwen3-8b,a100-80,1,fits,FITS,15.26,54.68,398193,48
+qwen3-8b,a100-80,2,fits,FITS,7.63,62.31,907481,110
+qwen3-8b,a100-80,4,fits,FITS,3.81,66.13,1926056,235
+qwen3-8b,a100-80,8,fits,FITS,1.91,68.03,3963206,483
+qwen3-8b,h100-80,1,fits,FITS,15.26,54.68,398193,48
+qwen3-8b,h100-80,2,fits,FITS,7.63,62.31,907481,110
+qwen3-8b,h100-80,4,fits,FITS,3.81,66.13,1926056,235
+qwen3-8b,h100-80,8,fits,FITS,1.91,68.03,3963206,483
+qwen3-8b,h200,1,fits,FITS,15.26,109.58,797963,97
+qwen3-8b,h200,2,fits,FITS,7.63,117.21,1707020,208
+qwen3-8b,h200,4,fits,FITS,3.81,121.03,3525134,430
+qwen3-8b,h200,8,fits,FITS,1.91,122.93,7161363,874
+qwen3-32b,rtx4090,1,doesn't fit,no,61.02,0,0,0
+qwen3-32b,rtx4090,2,doesn't fit,no,30.51,0,0,0
+qwen3-32b,rtx4090,4,fits,FITS,15.26,4.28,70188,8
+qwen3-32b,rtx4090,8,fits,FITS,7.63,11.91,390331,47
+qwen3-32b,a100-80,1,fits,FITS,61.02,8.92,36519,4
+qwen3-32b,a100-80,2,fits,FITS,30.51,39.43,322993,39
+qwen3-32b,a100-80,4,fits,FITS,15.26,54.68,895941,109
+qwen3-32b,a100-80,8,fits,FITS,7.63,62.31,2041838,249
+qwen3-32b,h100-80,1,fits,FITS,61.02,8.92,36519,4
+qwen3-32b,h100-80,2,fits,FITS,30.51,39.43,322993,39
+qwen3-32b,h100-80,4,fits,FITS,15.26,54.68,895941,109
+qwen3-32b,h100-80,8,fits,FITS,7.63,62.31,2041838,249
+qwen3-32b,h200,1,fits,FITS,61.02,63.82,261389,31
+qwen3-32b,h200,2,fits,FITS,30.51,94.33,772734,94
+qwen3-32b,h200,4,fits,FITS,15.26,109.58,1795423,219
+qwen3-32b,h200,8,fits,FITS,7.63,117.21,3840801,468
+qwen2.5-72b,rtx4090,1,doesn't fit,no,135.43,0,0,0
+qwen2.5-72b,rtx4090,2,doesn't fit,no,67.71,0,0,0
+qwen2.5-72b,rtx4090,4,doesn't fit,no,33.86,0,0,0
+qwen2.5-72b,rtx4090,8,fits,FITS,16.93,2.61,68465,8
+qwen2.5-72b,a100-80,1,doesn't fit,no,135.43,0,0,0
+qwen2.5-72b,a100-80,2,fits with too little KV (< 4 sequences of 8192),tight,67.71,2.23,14595,1
+qwen2.5-72b,a100-80,4,fits,FITS,33.86,36.08,472954,57
+qwen2.5-72b,a100-80,8,fits,FITS,16.93,53.01,1389671,169
+qwen2.5-72b,h100-80,1,doesn't fit,no,135.43,0,0,0
+qwen2.5-72b,h100-80,2,fits with too little KV (< 4 sequences of 8192),tight,67.71,2.23,14595,1
+qwen2.5-72b,h100-80,4,fits,FITS,33.86,36.08,472954,57
+qwen2.5-72b,h100-80,8,fits,FITS,16.93,53.01,1389671,169
+qwen2.5-72b,h200,1,doesn't fit,no,135.43,0,0,0
+qwen2.5-72b,h200,2,fits,FITS,67.71,57.13,374387,45
+qwen2.5-72b,h200,4,fits,FITS,33.86,90.98,1192539,145
+qwen2.5-72b,h200,8,fits,FITS,16.93,107.91,2828842,345

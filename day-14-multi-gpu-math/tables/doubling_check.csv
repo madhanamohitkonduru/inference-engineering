@@ -1,0 +1,4 @@
+tp,weights_gib,free_kv_gib,kv_heads_per_gpu,kv_bytes_per_token_per_gpu,kv_tokens,seqs_8192,vs_tp1
+1,61.02,8.92,8.0,262144,36519,4,1.0
+2,30.51,39.43,4.0,131072,322993,39,8.84
+4,15.26,54.68,2.0,65536,895941,109,24.53
